@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Profile;
 import br.com.service.DBService;
 
 @Configuration
+@Profile("test")
 public class TestConfig {
 
 	@Autowired
