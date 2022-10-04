@@ -15,6 +15,7 @@ public class DevConfig {
 	@Autowired
 	private DBService dbService;
 	
+	//Pega o valor do arquivo .properities
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String strategy;
 	
