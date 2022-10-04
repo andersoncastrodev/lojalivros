@@ -20,18 +20,17 @@ public class CategoriaService {
 		
 		return categoria.orElseThrow( () ->new ObjectNotFoundException("Objeto não encontrado! Id:"+ id +",Tipo: "+ Categoria.class.getName()) );
 	}
+
 	/*
-	 * 	public Optional<Categoria> findById(Integer id) {	
-		Optional<Categoria> categoria = categoriaRepository.findById(id);
-	  
-		if(categoria != null) {
-			return categoria;
-		}
-		return null;
-	}
+	 * Carrega todas as categorias
 	 */
 	public List<Categoria> findAll(){
 		return categoriaRepository.findAll();
+	}
+	
+	public Categoria create(Categoria categoria) {
+		categoria.setId(null);
+		return categoriaRepository.save(categoria);
 	}
 	
 }
