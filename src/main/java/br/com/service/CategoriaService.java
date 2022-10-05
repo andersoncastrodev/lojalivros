@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import br.com.domian.Categoria;
 import br.com.dtos.CategoriaDTO;
@@ -42,6 +43,21 @@ public class CategoriaService {
 		categoriaObj.setNome(categoriaDTO.getNome());
 		categoriaObj.setDescricao(categoriaDTO.getDescricao());
 		return categoriaRepository.save(categoriaObj);
+	}
+
+	/*
+	 * Deletar 
+	 */
+	public void delete(Integer id) {
+		
+		findById(id);
+		
+		try {
+			categoriaRepository.deleteById(id);
+		}catch (DataIntegrityViolationException e) {
+			throw new br.com.service.exceptions.DataIntegrityViolationException("Categoria não pode ser deletada, Tem Livro Associados");
+		}
+		
 	}
 	
 }
