@@ -56,8 +56,7 @@ public class CategoriaService {
 			categoriaRepository.deleteById(id);
 		}catch (DataIntegrityViolationException e) {
 			throw new br.com.service.exceptions.DataIntegrityViolationException("Categoria não pode ser deletada, Tem Livro Associados");
-		}
-		
+		}	
 	}
 	
 }
