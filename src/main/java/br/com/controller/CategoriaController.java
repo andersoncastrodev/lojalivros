@@ -46,9 +46,7 @@ public class CategoriaController {
 		
 		return ResponseEntity.ok().body(categoriaListDTO);
 	}
-	/*
-	 * Enviando via post.
-	 */
+
 	@PostMapping
 	public ResponseEntity<Categoria> create(@Valid @RequestBody Categoria categoria){
 		
